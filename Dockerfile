@@ -1,11 +1,14 @@
-# Use the official Tomcat image
-FROM tomcat:9-jdk11
+# Use an appropriate base image for your application
+FROM openjdk:11-jre-slim
 
-# Remove default web applications
-RUN rm -rf /usr/local/tomcat/webapps/examples /usr/local/tomcat/webapps/docs
+# Set the working directory
+WORKDIR /app
 
-# Copy the JAR file into Tomcat webapps directory
-COPY target/*.jar /usr/local/tomcat/webapps/app.jar
+# Copy the JAR file into the container
+COPY target/*.jar /app/app.jar
 
-# Expose Tomcat port
-EXPOSE 9090
+# Expose the port your application will run on
+EXPOSE 8080
+
+# Run the JAR file
+CMD ["java", "-jar", "app.jar"]
