@@ -1,14 +1,14 @@
-# Use an appropriate base image for your application
-FROM openjdk:11-jre-slim
+# Use the latest OpenJDK runtime as a parent image
+FROM openjdk:21-jre-slim
 
-# Set the working directory
+# Set the working directory in the container
 WORKDIR /app
 
-# Copy the JAR file into the container
-COPY target/*.jar /app/app.jar
+# Copy the JAR file into the container at /app
+COPY target/your-app.jar /app/your-app.jar
 
-# Expose the port your application will run on
+# Expose the port the application runs on
 EXPOSE 8080
 
-# Run the JAR file
-CMD ["java", "-jar", "app.jar"]
+# Define the command to run the JAR file
+CMD ["java", "-jar", "your-app.jar"]
