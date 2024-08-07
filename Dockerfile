@@ -8,4 +8,4 @@ RUN rm -rf /usr/local/tomcat/webapps/examples /usr/local/tomcat/webapps/docs
 COPY target/*.jar /usr/local/tomcat/webapps/app.jar
 
 # Expose Tomcat port
-EXPOSE 8080
+EXPOSE 9090
