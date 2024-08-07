@@ -5,7 +5,7 @@ FROM openjdk:17
 WORKDIR /app
 
 # Copy the JAR file into the container at /app
-COPY target/your-app.jar /app/your-app.jar
+COPY target/*.jar /app/app.jar
 
 # Expose the port the application runs on
 EXPOSE 8080
